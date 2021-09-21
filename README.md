@@ -51,5 +51,5 @@ This is Open Source Software released under the [Apache Software License 2.0](ww
 ## Questions
 
 * [apache-pulsar](https://stackoverflow.com/tags/apache-pulsar) and [reactive-pulsar](https://stackoverflow.com/tags/reactive-pulsar) tags on Stackoverflow
-* Join [Pulsar Slack for live discussions](https://pulsar.apache.org/en/contact/).
+* Join [Pulsar Slack for live discussions](https://pulsar.apache.org/en/contact/), there is #reactive-pulsar channel on Pulsar Slack.
 
