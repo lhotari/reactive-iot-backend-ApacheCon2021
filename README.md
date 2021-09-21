@@ -1,0 +1,39 @@
+# reactive-iot-backend
+
+The is the source code of the live coding demo for ["Building resilient and scalable API backends with Apache Pulsar and Spring Reactive"
+talk held at ApacheCon@Home 2021 by Lari Hotari](https://www.apachecon.com/acah2021/tracks/apimicro.html).
+
+## Running
+
+Run each of the commands in a separate terminal window/tab.
+
+### Start Pulsar in docker
+
+Make sure that ports 8080 and 6650 are available.
+```bash
+docker run -it -p 8080:8080 -p 6650:6650 apachepulsar/pulsar:2.8.1 /pulsar/bin/pulsar standalone
+```
+
+### Start the application
+
+```bash
+./gradlew bootRun
+```
+The application starts on port 8081.
+
+### Generate 1 million telemetry events with a shell script and curl
+
+```bash
+{ for i in {1..1000000}; do echo '{"n": "device'$i'/sensor1", "v": '$i'.123}'; done; } \
+    | curl -X POST -T - -H "Content-Type: application/x-ndjson" localhost:8081/telemetry
+```
+
+### Stream events to console with curl
+
+```bash
+curl -N localhost:8081/firehose
+```
+
+## License
+
+This is Open Source Software released under the [Apache Software License 2.0](www.apache.org/licenses/LICENSE-2.0).
