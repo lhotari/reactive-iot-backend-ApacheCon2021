@@ -3,7 +3,8 @@
 The is the source code of the live coding demo for ["Building resilient and scalable API backends with Apache Pulsar and Spring Reactive"
 talk held at ApacheCon@Home 2021 by Lari Hotari](https://www.apachecon.com/acah2021/tracks/apimicro.html).
 
-[Slides for the presentation](<Building resilient and scalable API backends with Apache Pulsar and Spring Reactive.pdf>)
+* [Slides for the presentation](<Building resilient and scalable API backends with Apache Pulsar and Spring Reactive.pdf>)
+* [Recording for the presentation](https://youtu.be/-Vp2Rxs2l9Y?t=28)
 
 
 ## Running
