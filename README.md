@@ -46,7 +46,7 @@ This is Open Source Software released under the [Apache Software License 2.0](ww
 
 * Apache Pulsar: https://pulsar.apache.org/
 * Spring Reactive: https://spring.io/reactive
-* Reactive Pulsar adapter: https://github.com/lhotari/reactive-pulsar 
+* Reactive Pulsar adapter: https://github.com/datastax/reactive-pulsar 
 * Reactive Pulsar showcase application: https://github.com/lhotari/reactive-pulsar-showcase
 
 ## Questions
