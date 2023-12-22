@@ -1,33 +1,64 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.2'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+    id 'project-report'
+    id "com.github.ben-manes.versions" version "0.50.0"
+    id "com.diffplug.spotless" version "6.23.3"
 }
 
 group = 'com.github.lhotari'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+
+java {
+    sourceCompatibility = '17'
+}
+
+spotless {
+    java {
+        removeUnusedImports()
+        prettier(['prettier': '3.0.3', 'prettier-plugin-java': '2.5.0'])
+                .config(['plugins'      : ['prettier-plugin-java'],
+                         'trailingComma': 'none',
+                         'useTabs'      : false,
+                         'tabWidth'     : 4,
+                         'semi'         : true,
+                         'singleQuote'  : false,
+                         'printWidth'   : 120,
+                         'arrowParens'  : 'avoid'])
+    }
+}
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
+}
+
+sourceSets {
+    intTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'com.github.lhotari:reactive-pulsar-spring-boot-starter:0.2.0'
-	testImplementation 'com.github.lhotari:reactive-pulsar-spring-test-support:0.2.0'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.projectreactor:reactor-test'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-pulsar-reactive'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    intTestAnnotationProcessor 'org.projectlombok:lombok'
+    intTestCompileOnly 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

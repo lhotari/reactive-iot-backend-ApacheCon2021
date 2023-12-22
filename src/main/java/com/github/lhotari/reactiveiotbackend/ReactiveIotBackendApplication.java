@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ReactiveIotBackendApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ReactiveIotBackendApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(ReactiveIotBackendApplication.class, args);
+    }
 }

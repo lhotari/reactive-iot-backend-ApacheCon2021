@@ -6,6 +6,7 @@ talk held at ApacheCon@Home 2021 by Lari Hotari](https://www.apachecon.com/acah2
 * [Slides for the presentation](<Building resilient and scalable API backends with Apache Pulsar and Spring Reactive.pdf>)
 * [Recording for the presentation](https://youtu.be/-Vp2Rxs2l9Y?t=28)
 
+Update 12/2023: This example project has been updated to use latest versions of Pulsar Reactive Client and Spring for Apache Pulsar. This code base uses Pulsar Reactive Client directly, without the special annotation support Spring for Apache Pulsar.
 
 ## Running
 
@@ -15,7 +16,7 @@ Run each of the commands in a separate terminal window/tab.
 
 Make sure that ports 8080 and 6650 are available.
 ```bash
-docker run -it -p 8080:8080 -p 6650:6650 apachepulsar/pulsar:2.8.2 /pulsar/bin/pulsar standalone
+docker run -it -p 8080:8080 -p 6650:6650 apachepulsar/pulsar:3.1.1 /pulsar/bin/pulsar standalone -nss -nfw
 ```
 
 ### Start the application
@@ -46,7 +47,8 @@ This is Open Source Software released under the [Apache Software License 2.0](ww
 
 * Apache Pulsar: https://pulsar.apache.org/
 * Spring Reactive: https://spring.io/reactive
-* Reactive Pulsar adapter: https://github.com/datastax/reactive-pulsar 
+* Spring for Apache Pulsar: https://spring.io/projects/spring-pulsar/
+* Reactive client for Apache Pulsar: https://github.com/apache/pulsar-client-reactive 
 * Reactive Pulsar showcase application: https://github.com/lhotari/reactive-pulsar-showcase
 
 ## Questions
