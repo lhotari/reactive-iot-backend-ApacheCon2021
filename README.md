@@ -16,7 +16,7 @@ Run each of the commands in a separate terminal window/tab.
 
 Make sure that ports 8080 and 6650 are available.
 ```bash
-docker run -it -p 8080:8080 -p 6650:6650 apachepulsar/pulsar:3.2.3 /pulsar/bin/pulsar standalone -nss -nfw
+docker run -it -p 8080:8080 -p 6650:6650 apachepulsar/pulsar:4.0.0 /pulsar/bin/pulsar standalone -nss -nfw
 ```
 
 ### Start the application
