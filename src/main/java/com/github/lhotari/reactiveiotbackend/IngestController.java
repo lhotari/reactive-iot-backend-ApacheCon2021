@@ -20,13 +20,12 @@ public class IngestController {
         ReactivePulsarClient reactivePulsarClient,
         ReactiveMessageSenderCache reactiveMessageSenderCache
     ) {
-        reactiveMessageSender =
-            reactivePulsarClient
-                .messageSender(Schema.JSON(TelemetryEvent.class))
-                .topic("telemetry_ingest")
-                .cache(reactiveMessageSenderCache)
-                .maxInflight(100)
-                .build();
+        reactiveMessageSender = reactivePulsarClient
+            .messageSender(Schema.JSON(TelemetryEvent.class))
+            .topic("telemetry_ingest")
+            .cache(reactiveMessageSenderCache)
+            .maxInflight(100)
+            .build();
     }
 
     @PostMapping("/telemetry")

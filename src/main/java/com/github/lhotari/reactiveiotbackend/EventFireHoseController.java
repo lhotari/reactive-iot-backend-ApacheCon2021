@@ -16,13 +16,12 @@ public class EventFireHoseController {
     private final ReactiveMessageReader<TelemetryEvent> reactiveMessageReader;
 
     public EventFireHoseController(ReactivePulsarClient reactivePulsarClient) {
-        reactiveMessageReader =
-            reactivePulsarClient
-                .messageReader(Schema.JSON(TelemetryEvent.class))
-                .topic("telemetry_ingest")
-                .startAtSpec(StartAtSpec.ofEarliest())
-                .endOfStreamAction(EndOfStreamAction.POLL)
-                .build();
+        reactiveMessageReader = reactivePulsarClient
+            .messageReader(Schema.JSON(TelemetryEvent.class))
+            .topic("telemetry_ingest")
+            .startAtSpec(StartAtSpec.ofEarliest())
+            .endOfStreamAction(EndOfStreamAction.POLL)
+            .build();
     }
 
     @GetMapping("/firehose")
